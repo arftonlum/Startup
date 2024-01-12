@@ -12,26 +12,24 @@ The snake game is one of the most classic games our time and it has seen a lot o
 ### Key features
 
 - Secure login over HTTPS
-- Ability to select the question to decide
-- Display of choices
-- Ability to select, and change, top three choices
-- Totals from all users displayed in realtime
-- Ability for a user to lock in their top three
-- Results are persistently stored
-- Ability for admin to create and delete questions
+- Ability to select and rotate tile
+- Display board and past tiles
+- Show score and game end
+- Show Leaderboard from all players
+- Save top score for login
+- Provide information for new high scores
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Uses correct HTML structure for application. Two HTML pages. One for login and one for voting. Hyperlinks to choice artifact.
+- **HTML** - Uses correct HTML structure for application. Three HTML pages. One for login one for the game, and one for the leaderboard. Hyperlinks between pages
 - **CSS** - Application styling that looks good on different screen sizes, uses good whitespace, color choice and contrast.
-- **JavaScript** - Provides login, choice display, applying votes, display other users votes, backend endpoint calls.
+- **JavaScript** - Provides login, game board and mechanics, counting score, display other users scores.
 - **Service** - Backend service with endpoints for:
   - login
-  - retrieving choices
-  - submitting votes
-  - retrieving vote status
-- **DB/Login** - Store users, choices, and votes in database. Register and login users. Credentials securely stored in database. Can't vote unless authenticated.
-- **WebSocket** - As each user votes, their votes are broadcast to all other users.
+  - retrieving high scores
+  - submitting new score
+- **DB/Login** - Store users and scores in database. Register and login users. Credentials securely stored in database.
+- **WebSocket** - As each player gets a new high score or joins the top 5, all players are informed
 - **React** - Application ported to use the React web framework.
