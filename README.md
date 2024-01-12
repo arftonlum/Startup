@@ -8,7 +8,7 @@ The snake game is one of the most classic games our time and it has seen a lot o
 ### Design
 
 
-![Leaderboard](/images/Pathsleaderboard.png) ![SignIn](/images/Pathssignin.png) ![Play](/images/Pathsplay.png)
+![Leaderboard](https://github.com/arftonlum/Startup/blob/main/images/Pathsleaderboard.png) ![SignIn](https://github.com/arftonlum/Startup/blob/main/images/Pathssignin.png) ![Play](https://github.com/arftonlum/Startup/blob/main/images/Pathsplay.png)
 ### Key features
 
 - Secure login over HTTPS
