@@ -1,4 +1,3 @@
-THis si some sampel text
-It is noot great iengl
-I sory
-da
+This is some sample text
+It is not great Enlgish
+I am sorry
