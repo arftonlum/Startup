@@ -67,3 +67,5 @@ Some HTML
 for images do <img src ="" alt="" width=""> and for links it's <a href= "">link text</a>
 I can't figure out the <video> tag, but I found that people online recommend the iframe tag instead. So maybe that is something I should look into. Inputs are really cool and I wish I had learned those previously.
 I am gonna do some HTML stuff later.
+
+1/29/24
