@@ -69,3 +69,4 @@ I can't figure out the <video> tag, but I found that people online recommend the
 I am gonna do some HTML stuff later.
 
 1/29/24
+~/goes back to the master directory I think. So my reference was ~/keys/production key
