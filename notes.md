@@ -1,4 +1,14 @@
 #Notes for this class
+
+QUestions:
+What is github? Def thought it was my website
+WHat does shell in mean?
+WHat is the folder on my computer?
+How to deploy?
+HOw to change actual website
+
+
+
 Add then commit then checkout to go back
 Here is the [Read Me](https://github.com/arftonlum/Startup/blob/120faff65610e42ff73fcddaa14e411d22b16a56/README.md).
 
@@ -71,3 +81,4 @@ I am gonna do some HTML stuff later.
 1/29/24
 ~/goes back to the master directory I think. So my reference was ~/keys/production key'
 1/31/24
+CS id="" we can make this attribute set with #whatever ID
