@@ -9,7 +9,9 @@ HOw to change actual website
 What is aria-hidden
 
 
-
+Important:
+ssh -i ~/keys/production.pem ubuntu@thempaths.click
+./deployFiles.sh -k ~/keys/production.pem -h thempaths.click -s startup
 
 Add then commit then checkout to go back
 Here is the [Read Me](https://github.com/arftonlum/Startup/blob/120faff65610e42ff73fcddaa14e411d22b16a56/README.md).
