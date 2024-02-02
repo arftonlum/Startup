@@ -6,6 +6,8 @@ WHat does shell in mean?
 WHat is the folder on my computer?
 How to deploy?
 HOw to change actual website
+What is aria-hidden
+
 
 
 
@@ -77,6 +79,8 @@ Some HTML
 for images do <img src ="" alt="" width=""> and for links it's <a href= "">link text</a>
 I can't figure out the <video> tag, but I found that people online recommend the iframe tag instead. So maybe that is something I should look into. Inputs are really cool and I wish I had learned those previously.
 I am gonna do some HTML stuff later.
+MOre HTML
+form method="get" Default. Appends the form-data to the URL in name/value pairs: URL?name=value&name=value I guess this will give me the information to use on the next page. See login in html
 
 1/29/24
 ~/goes back to the master directory I think. So my reference was ~/keys/production key'
