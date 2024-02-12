@@ -7,7 +7,7 @@ menu{
     display: flex;
     flex: 1;
     flex-direction: row;
-    color: white;
+    color: green;
 }
 a{
   color: white;
@@ -30,4 +30,10 @@ footer{
 footer a{
   color: black;
   float: left;
+}
+.he{
+  background-color: blue;
+}
+.he:hover {
+background: black;
 }
