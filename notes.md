@@ -7,6 +7,7 @@ WHat is the folder on my computer?
 How to deploy?
 HOw to change actual website
 What is aria-hidden
+Add disabled state to ok button, change button effects on play game stage, add picture in rules page, add chinese looking background. SPace on the game board, add pressed state to nav buttons, Add colors or something to leaderboard, add pedastal background on leaderboard page
 
 
 Important:
