@@ -29,10 +29,14 @@ footer{
   display: flex;
   flex: 1;
   flex-direction: column;
+  background-color: #ffffff60;
+  margin-top: 2em;
+
 }
 footer a{
   color: black;
   float: left;
+  opacity: 1;
 }
 .he{
   background-color: blue;
