@@ -1,6 +1,6 @@
 #Notes for this class
 
-QUestions:
+Questions:
 What is github? Def thought it was my website
 WHat does shell in mean?
 WHat is the folder on my computer?

@@ -1,5 +1,6 @@
 header {
     flex: 0 80px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
 
 menu{
@@ -13,7 +14,9 @@ a{
   color: white;
 }
 body{
-
+  background-image: url('/The_Great_Wall_of_China_at_Jinshanling-edit.jpg');
+  background-size: height=100%;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 main {
   flex: 1 calc(100vh - 110px);
