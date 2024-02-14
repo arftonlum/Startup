@@ -7,8 +7,9 @@ WHat is the folder on my computer?
 How to deploy?
 HOw to change actual website
 What is aria-hidden
-Add disabled state to ok button, change button effects on play game stage, add picture in rules page, add chinese looking background. SPace on the game board, add pressed state to nav buttons, Add colors or something to leaderboard, add pedastal background on leaderboard page
-
+Add disabled state to ok button, change button effects on play game stage, add pressed state to nav buttons, Add colors or something to leaderboard, add pedastal background on leaderboard page
+Do I need to put like Script> on the game and leaderboard pages. HOw do they reference things? How should I make my game? Objects? Map object?
+Print statements? How to run JS. Sandbox.
 
 Important:
 ssh -i ~/keys/production.pem ubuntu@thempaths.click
