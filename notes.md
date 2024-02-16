@@ -90,3 +90,8 @@ form method="get" Default. Appends the form-data to the URL in name/value pairs:
 ~/goes back to the master directory I think. So my reference was ~/keys/production key'
 1/31/24
 CS id="" we can make this attribute set with #whatever ID
+
+2/16/24
+JS
+[x,y] = a when a is an array this will assign the first to values of a to x and y
+... variatic operator means everything else.
