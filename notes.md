@@ -95,3 +95,7 @@ CS id="" we can make this attribute set with #whatever ID
 JS
 [x,y] = a when a is an array this will assign the first to values of a to x and y
 ... variatic operator means everything else.
+
+2/17
+Goals for JS
+Animation for the rotate. Path turns yellow, custom board size. NExt button?
