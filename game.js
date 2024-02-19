@@ -82,10 +82,12 @@ makepath();
 function clickarcr (){
     board[myposition[0]][myposition[1]].tile="arcrtile";
     console.log("placed arcR in",myposition[0],myposition[1]);
+    makepath();
 };
 function clickcross (){
     board[myposition[0]][myposition[1]].tile="crosstile";
     console.log("placed Cross in",myposition[0],myposition[1]);
+    makepath();
 };
 //Reset Function
 //Draw board
@@ -97,7 +99,6 @@ function makepath(){
     };
     score++;
     console.log("you have",score, "points");
-    console.log(board[myposition[0]][myposition[1]]=="empty",board[myposition[0]][myposition[1]]);
     if (board[myposition[0]][myposition[1]].tile=="empty"){
         console.log("nothing at", myposition[0],myposition[1]);
         return;
@@ -116,6 +117,7 @@ function makepath(){
         console.log("Cross here")
     };
     console.log("tile we are on",board[myposition[0]][myposition[1]],"our position",myposition);
+    makepath();
 }
 //check for loss
 
