@@ -56,7 +56,7 @@
       <br />
 
       <div>
-        <button>New Game</button>
+        <button onclick="Buildboard()">New Game</button>
       </div>
       </div>
 
@@ -187,14 +187,14 @@
         </table>
       </div>
       <div>
-        <button>
-          rotate left
+        <button onclick="clickarcl()">
+          Left Arc
         </button>
-        <svg width="50" height="50">
-          <rect width="100%" height="100%" style="fill:yellow"/>
-        </svg>
-        <button>
-          rotate right
+        <button onclick="clickcross()">
+          Cross
+        </button>
+        <button onclick="clickarcr()">
+          Right Arc
         </button>
       </div>
     </main>
@@ -203,5 +203,6 @@
       <span class="text-reset">Nathan Brueck</span>
       <a href="https://github.com/arftonlum/Startup">GitHub</a>
     </footer>
+    <script src="game.js"></script>
   </body>
 </html>

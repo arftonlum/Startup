@@ -1,0 +1,40 @@
+<script type="text/javascript">
+    
+
+let board = []
+function Buildboard(width=3,height=3){
+    for (let i = 0; i<width; i++){
+      board.push(column=[]);
+        for (let i = 0; i<height; i++){
+            column.push({tile:"empty"})
+        }}}
+
+function ArcL (position){
+    let newPos = [...position];
+    if (newPos[2] == "N"){
+      newPos[0] ++;
+      newPos[2] = "W";
+    }
+    else if (newPos[2] == "E"){
+        newPos[1] --;
+        newPos[2] = "N"; 
+    }    
+    else if (newPos[2] == "W"){
+        newPos[1]++;
+        newPos[2] = "S"; 
+    }
+    else if (newPos[2] == "S"){
+        newPos[0]--;
+        newPos[2] = "E"; 
+    }
+  return newPos;
+}
+let myposition = [1,0,"N"]
+let newPos = ArcL(myposition); //why do I need to call this at all?
+
+//console.log(position[2]=="N");
+//myposition[0]++;
+//myposition[1]="E";
+//console.log(myposition);
+
+</script>
