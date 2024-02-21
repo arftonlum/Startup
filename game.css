@@ -9,3 +9,6 @@
 .players{
     text-decoration: underline;
 }
+#boardofthegame{
+  background-color: white;
+}

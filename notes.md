@@ -99,3 +99,24 @@ JS
 2/17
 Goals for JS
 Animation for the rotate. Path turns yellow, custom board size. NExt button?
+
+<canvas id="myCanvas" width="100" height="100" style="border:1px solid grey"></canvas>
+
+<script>
+const c = document.getElementById("boardofthegame");
+const ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(0, 0, 50, 0, .5*Math.PI);
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(100,100,50,Math.PI,1.5*Math.PI);
+ctx.strokeStyle="green";
+ctx.stroke();
+</script> 
+//code for two arcs in a canvas
+ctx.beginPath();
+ctx.moveTo(0,50);
+ctx.lineTo(100,50);
+ctx.moveTo(50,0);
+ctx.lineTo(50,100);
+ctx.stroke();
