@@ -4,7 +4,10 @@ let boardwidth = 5;
 let boardheight= 5;
 let score = 0;
 function Buildboard(){
-
+    let blah = document.getElementById("boardofthegame");
+    let blahtx = blah.getContext("2d");
+    blahtx.reset(); 
+    drawtemplates();
     board=[];
     myposition=[2,0,"N"];
     score = 0;
@@ -14,6 +17,32 @@ function Buildboard(){
         for (let i = 0; i<boardheight; i++){
             column.push({tile:"empty"})
         }}}
+function drawtemplates(){
+  let a = document.getElementById("righttemplate");
+  let atx = a.getContext("2d");
+  atx.beginPath();
+  atx.arc(0, 0, 50, 0, .5*Math.PI);
+  atx.stroke();
+  atx.beginPath();
+  atx.arc(100,100,50,Math.PI,1.5*Math.PI);
+  atx.stroke();
+  let c = document.getElementById("lefttemplate");
+    let ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(100, 0, 50, 0.5*Math.PI, Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0,100,50,1.5*Math.PI,2*Math.PI);
+    ctx.stroke();
+    let b = document.getElementById("crosstemplate");
+    let btx = b.getContext("2d");
+    btx.beginPath();
+    btx.moveTo(0,50);
+    btx.lineTo(100,50);
+    btx.moveTo(50,0);
+    btx.lineTo(50,100);
+    btx.stroke(); 
+}
 function DrawArcRTiles(firstlinesize=1,twolinesize=1){
 const c = document.getElementById("boardofthegame");
 const ctx = c.getContext("2d");
@@ -26,7 +55,7 @@ ctx.beginPath();
 ctx.arc(myposition[0]*100+100,myposition[1]*100+100,50,Math.PI,1.5*Math.PI);
 ctx.lineWidth=twolinesize;
 ctx.stroke();
-ctx.lineWidth=1;  
+ctx.lineWidth=1; 
 }
 function DrawArcLTiles(firstlinesize=1,twolinesize=1){
     const c = document.getElementById("boardofthegame");
