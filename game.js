@@ -6,7 +6,7 @@ let score = 0;
 function Buildboard(){
 
     board=[];
-    myposition=[1,1,"S"];
+    myposition=[2,0,"N"];
     score = 0;
     console.log("building board");
     for (let i = 0; i<boardwidth; i++){
@@ -14,35 +14,64 @@ function Buildboard(){
         for (let i = 0; i<boardheight; i++){
             column.push({tile:"empty"})
         }}}
-function DrawTiles(){
+function DrawArcRTiles(firstlinesize=1,twolinesize=1){
 const c = document.getElementById("boardofthegame");
 const ctx = c.getContext("2d");
 ctx.beginPath();
 ctx.arc(myposition[0]*100, myposition[1]*100, 50, 0, .5*Math.PI);
+ctx.lineWidth=firstlinesize;
 ctx.stroke();
+ctx.lineWidth=1;
 ctx.beginPath();
 ctx.arc(myposition[0]*100+100,myposition[1]*100+100,50,Math.PI,1.5*Math.PI);
-ctx.strokeStyle="green";
+ctx.lineWidth=twolinesize;
 ctx.stroke();
-    
+ctx.lineWidth=1;  
+}
+function DrawArcLTiles(firstlinesize=1,twolinesize=1){
+    const c = document.getElementById("boardofthegame");
+    const ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(myposition[0]*100+100, myposition[1]*100, 50, 0.5*Math.PI, Math.PI);
+    ctx.lineWidth=firstlinesize;
+    ctx.stroke();
+    ctx.linewidth=1;
+    ctx.beginPath();
+    ctx.arc(myposition[0]*100,myposition[1]*100+100,50,1.5*Math.PI,2*Math.PI);
+    ctx.lineWidth=twolinesize;
+    ctx.stroke();
+    ctx.lineWidth=1;   
+    }
+function DrawCrossTiles(){
+    const c = document.getElementById("boardofthegame");
+    const ctx = c.getContext("2d");
+    ctx.beginPath();
+ctx.moveTo(myposition[0]*100,myposition[1]*100+50);
+ctx.lineTo(myposition[0]*100+100,myposition[1]*100+50);
+ctx.moveTo(myposition[0]*100+50,myposition[1]*100);
+ctx.lineTo(myposition[0]*100+50,myposition[1]*100+100);
+ctx.stroke();
 }
 function ArcR (position){
     console.log("running ArcR")
-    DrawTiles();
     let newPos = [...position];
     if (newPos[2] == "N"){
+      DrawArcRTiles(5,1);
       newPos[0] --;
       newPos[2] = "E";
     }
     else if (newPos[2] == "E"){
+      DrawArcRTiles(1,5);
         newPos[1] ++;
-        newPos[2] = "S"; 
+        newPos[2] = "N"; 
     }    
     else if (newPos[2] == "W"){
+      DrawArcRTiles(5,1);
         newPos[1]--;
-        newPos[2] = "N"; 
+        newPos[2] = "S"; 
     }
     else if (newPos[2] == "S"){
+      DrawArcRTiles(1,5);
         newPos[0]++;
         newPos[2] = "W"; 
     }
@@ -50,21 +79,24 @@ function ArcR (position){
 }
 function ArcL (position){
     console.log("running ArcL")
-    DrawTiles();
     let newPos = [...position];
-    if (newPos[2] == "N"){
+    if (newPos[2] == "N"){ 
+      DrawArcLTiles(5,1);      
       newPos[0] ++;
       newPos[2] = "W";
     }
     else if (newPos[2] == "E"){
+      DrawArcLTiles(5,1);
         newPos[1] --;
-        newPos[2] = "N"; 
+        newPos[2] = "S"; 
     }    
     else if (newPos[2] == "W"){
+      DrawArcLTiles(1,5);
         newPos[1]++;
-        newPos[2] = "S"; 
+        newPos[2] = "N"; 
     }
     else if (newPos[2] == "S"){
+      DrawArcLTiles(1,5);
         newPos[0]--;
         newPos[2] = "E"; 
     }
@@ -72,19 +104,51 @@ function ArcL (position){
 }
 function Cross (position){
     console.log("running Cross")
-    DrawTiles();
+    DrawCrossTiles();
     let newPos = [...position];
     if (newPos[2] == "N"){
-      newPos[1] --;
+      const c = document.getElementById("boardofthegame");
+    const ctx = c.getContext("2d");
+    ctx.lineWidth=5;
+    ctx.beginPath();
+    ctx.moveTo(myposition[0]*100+50,myposition[1]*100);
+    ctx.lineTo(myposition[0]*100+50,myposition[1]*100+100);
+    ctx.stroke();
+    ctx.lineWidth=1;
+      newPos[1] ++;
     }
     else if (newPos[2] == "E"){
+      const c = document.getElementById("boardofthegame");
+      const ctx = c.getContext("2d");
+      ctx.lineWidth=5;
+      ctx.beginPath();
+      ctx.moveTo(myposition[0]*100,myposition[1]*100+50);
+      ctx.lineTo(myposition[0]*100+100,myposition[1]*100+50);
+      ctx.stroke();
+      ctx.lineWidth=1;
         newPos[0] --; 
     }    
     else if (newPos[2] == "W"){
+      const c = document.getElementById("boardofthegame");
+      const ctx = c.getContext("2d");
+      ctx.lineWidth=5;
+      ctx.beginPath();
+      ctx.moveTo(myposition[0]*100,myposition[1]*100+50);
+      ctx.lineTo(myposition[0]*100+100,myposition[1]*100+50);
+      ctx.stroke();
+      ctx.lineWidth=1;
         newPos[0]++;
     }
     else if (newPos[2] == "S"){
-        newPos[1]++;
+      const c = document.getElementById("boardofthegame");
+      const ctx = c.getContext("2d");
+      ctx.lineWidth=5;
+      ctx.beginPath();
+      ctx.moveTo(myposition[0]*100+50,myposition[1]*100);
+      ctx.lineTo(myposition[0]*100+50,myposition[1]*100+100);
+      ctx.stroke();
+      ctx.lineWidth=1;
+        newPos[1]--;
     }
   return newPos;
 }
@@ -135,7 +199,48 @@ function makepath(){
         console.log("you have",score, "points");
         console.log("Cross here")
     };
-    console.log("tile we are on",board[myposition[0]][myposition[1]],"our position",myposition);
     makepath();
 }
 
+//score stuff
+function getPlayerName() {
+    return localStorage.getItem('userName') ?? 'Mystery player';
+  }
+function updateScore(score) {
+    const scoreEl = document.querySelector('#score');
+    scoreEl.textContent = score;
+  }
+function saveScore(score) {
+    const userName = this.getPlayerName();
+    let scores = [];
+    const scoresText = localStorage.getItem('scores');
+    if (scoresText) {
+      scores = JSON.parse(scoresText);
+    }
+    scores = this.updateScores(userName, score, scores);
+
+    localStorage.setItem('scores', JSON.stringify(scores));
+  }
+function updateScores(userName, score, scores) {
+    const date = new Date().toLocaleDateString();
+    const newScore = { name: userName, score: score, date: date };
+
+    let found = false;
+    for (const [i, prevScore] of scores.entries()) {
+      if (score > prevScore.score) {
+        scores.splice(i, 0, newScore);
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      scores.push(newScore);
+    }
+
+    if (scores.length > 10) {
+      scores.length = 10;
+    }
+
+    return scores;
+  }
