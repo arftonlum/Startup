@@ -37,20 +37,20 @@
     <main>
       <div class="text">
       <div class="players">
-        Signed in as:
-        <span class="player-name">Username</span>
+        You Are:
+        <span class="player-name"></span>
+        <div id="player-messages">
+          <div class="event"><span class="player-event">Tim</span> is now in the top 5</div>
+          <div class="event"><span class="player-event">Ada</span> passed you</div>
+          <div class="event"><span class="system-event">Jonathan</span> scored a measley 1 point which shouldn't be possible</div>
+        </div>
       </div>
-      <ul class="notification">
-        <li class="player-name">Tim is now in the top 5</li>
-        <li class="player-name">Ada passed you</li>w
-        <li class="player-name">Tim scored 337 which was not good</li>
-      </ul>
 
       <br />
 
       <div>
         <label for="count">Current Score</label>
-        <input type="text" id="count" value="--" readonly />
+        <div id="score" class="score center">--</div>
       </div>
 
       <br />

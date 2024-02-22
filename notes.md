@@ -11,6 +11,16 @@ Add disabled state to ok button, change button effects on play game stage, add p
 Do I need to put like Script> on the game and leaderboard pages. HOw do they reference things? How should I make my game? Objects? Map object?
 Print statements? How to run JS. Sandbox.
 
+Features
+Needed
+responsive to smaller screen
+Wanted
+custom board sizes
+score multiplier
+grid on the board
+
+
+
 Important:
 ssh -i ~/keys/production.pem ubuntu@thempaths.click
 ./deployFiles.sh -k ~/keys/production.pem -h thempaths.click -s startup

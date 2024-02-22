@@ -8,9 +8,11 @@ function Buildboard(){
     let blahtx = blah.getContext("2d");
     blahtx.reset(); 
     drawtemplates();
+    document.querySelector('.player-name').textContent=getPlayerName();
     board=[];
     myposition=[2,0,"N"];
     score = 0;
+    updateScore(score);
     console.log("building board");
     for (let i = 0; i<boardwidth; i++){
       board.push(column=[]);
@@ -198,9 +200,12 @@ function clickcross (){
     makepath();
 };
 function makepath(){
-    console.log("runningpath looks like", board[myposition[0]][myposition[1]]);
+  updateScore(score);
     if (myposition[0] == -1 || myposition[1] == -1 || myposition[0] == boardwidth || myposition[1] == boardheight ){
         console.log("game over you got", score, "points")
+        saveScore(score);
+        const nscore=`Game over! You got ${score} points`;
+        updateScore(nscore);
         return;
     };
 
@@ -231,14 +236,16 @@ function makepath(){
     makepath();
 }
 
-//score stuff
+
 function getPlayerName() {
     return localStorage.getItem('userName') ?? 'Mystery player';
   }
-function updateScore(score) {
+  function updateScore(score) {
     const scoreEl = document.querySelector('#score');
     scoreEl.textContent = score;
   }
+//score stuff I am pretty sure works
+
 function saveScore(score) {
     const userName = this.getPlayerName();
     let scores = [];
