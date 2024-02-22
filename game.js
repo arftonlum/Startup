@@ -3,7 +3,7 @@ let board = [];
 let boardwidth = 5;
 let boardheight= 5;
 let score = 0;
-let multiplier=100;
+let multiplier=1;
 function Buildboard(){
     let blah = document.getElementById("boardofthegame");
     let blahtx = blah.getContext("2d");
@@ -204,6 +204,7 @@ function makepath(){
   updateScore(score);
     if (myposition[0] == -1 || myposition[1] == -1 || myposition[0] == boardwidth || myposition[1] == boardheight ){
         console.log("game over you got", score, "points")
+        score=score*100
         saveScore(score);
         const nscore=`Game over! You got ${score} points`;
         updateScore(nscore);
@@ -212,38 +213,49 @@ function makepath(){
 
     if (board[myposition[0]][myposition[1]].tile=="empty"){
         console.log("nothing at", myposition[0],myposition[1]);
+        multiplier=1;
         return;
     }
 
     else if (board[myposition[0]][myposition[1]].tile=="arcrtile"){
         console.log("ArcR here")
-        score++;
+        score=score+multiplier;
+        multiplier++;
         console.log("you have",score, "points");
         myposition=ArcR(myposition);
 
     }
     else if (board[myposition[0]][myposition[1]].tile=="arcltile"){
         console.log("ArcL here")
-        score++;
+        score=score+multiplier;
+        multiplier++;
         console.log("you have",score, "points");
         myposition= ArcL(myposition);
     }
     else if (board[myposition[0]][myposition[1]].tile=="crosstile"){
         myposition=Cross(myposition);
-        score++;
+        score=score+multiplier;
+        multiplier++;
         console.log("you have",score, "points");
         console.log("Cross here")
     };
     makepath();
 }
+function streak(bonus){
 
+}
 
 function getPlayerName() {
     return localStorage.getItem('userName') ?? 'Mystery player';
   }
   function updateScore(score) {
+    if (typeof score === 'string'){
+      const scoreEl = document.querySelector('#score');
+      scoreEl.textContent = score;
+    }
+    else{
     const scoreEl = document.querySelector('#score');
-    scoreEl.textContent = score*100;
+    scoreEl.textContent = score*100;}
   }
 //score stuff I am pretty sure works
 
