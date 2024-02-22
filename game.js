@@ -3,6 +3,7 @@ let board = [];
 let boardwidth = 5;
 let boardheight= 5;
 let score = 0;
+let multiplier=100;
 function Buildboard(){
     let blah = document.getElementById("boardofthegame");
     let blahtx = blah.getContext("2d");
@@ -242,7 +243,7 @@ function getPlayerName() {
   }
   function updateScore(score) {
     const scoreEl = document.querySelector('#score');
-    scoreEl.textContent = score;
+    scoreEl.textContent = score*100;
   }
 //score stuff I am pretty sure works
 
