@@ -1,7 +1,11 @@
-let myposition = [1,1,"S"];
+//add a way for the new player to see if they need to move before playing
+//add text to say what players turn
+let firstposition = [1,1,"S","first"];
+let secondposition=[1,1,"S","second"];
+let myposition=[0,0,"N","first"]
 let board = [];
-let boardwidth = 5;
-let boardheight= 5;
+let boardwidth = 7;
+let boardheight= 7;
 let score = 0;
 let multiplier=1;
 function Buildboard(){
@@ -11,7 +15,9 @@ function Buildboard(){
     drawtemplates();
     document.querySelector('.player-name').textContent=getPlayerName();
     board=[];
-    myposition=[2,0,"N"];
+    firstposition=[3,0,"N","first"];
+    secondposition=[3,6,"S","second"];
+    myposition=[...firstposition];
     score = 0;
     updateScore(score);
     console.log("building board");
@@ -20,6 +26,18 @@ function Buildboard(){
         for (let i = 0; i<boardheight; i++){
             column.push({tile:"empty"})
         }}}
+function changeturns(){
+  console.log("changeturns");
+if (myposition[3] == "first"){
+  console.log(myposition,firstposition);
+  firstposition=[...myposition];
+  myposition=[...secondposition];
+  console.log(myposition,firstposition);
+}
+else {secondposition= [...myposition]
+myposition=[...firstposition];
+};
+}
 function drawtemplates(){
   let a = document.getElementById("righttemplate");
   let atx = a.getContext("2d");
@@ -212,8 +230,9 @@ function makepath(){
     };
 
     if (board[myposition[0]][myposition[1]].tile=="empty"){
-        console.log("nothing at", myposition[0],myposition[1]);
+        console.log("nothing at", myposition[0],myposition[1],myposition[3]);
         multiplier=1;
+        //changeturns();
         return;
     }
 

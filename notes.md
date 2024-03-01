@@ -1,22 +1,19 @@
 #Notes for this class
 
 Questions:
-What is github? Def thought it was my website
-WHat does shell in mean?
-WHat is the folder on my computer?
-How to deploy?
-HOw to change actual website
+WHat is DNS?
+Dig and whois?
+
+
 What is aria-hidden
 Add disabled state to ok button, change button effects on play game stage, add pressed state to nav buttons, Add colors or something to leaderboard, add pedastal background on leaderboard page
-Do I need to put like Script> on the game and leaderboard pages. HOw do they reference things? How should I make my game? Objects? Map object?
-Print statements? How to run JS. Sandbox.
+
 
 Features
 Needed
 responsive to smaller screen
 Wanted
 custom board sizes
-score multiplier
 grid on the board
 
 
@@ -130,3 +127,53 @@ ctx.lineTo(100,50);
 ctx.moveTo(50,0);
 ctx.lineTo(50,100);
 ctx.stroke();
+
+regex /A|f/i a or f not case sensitive. / / means regexq
+queryselector only gets the first one. queryselectall is for all
+JSON doesn't use undefined, and uses double quotes. 
+To point to another DNS record use CNAME learn about A type
+learn about arrow syntax again
+
+can use @import url("")to import a font
+From outside to in margin border, padding-space around content, content
+const f = y => ++y; console.log(f(3)) out puts 4? div is division
+a.reduce((a,v)+> [a,v].join(':')); console.log(b) outputs cow:rat:fish
+function is const f =(x)=>{}, function f(x){}, const f =function(x){}
+javascript <script></script>, <script src='main.js'/>, <div onclick='1+1'/>
+Valid JSON {"x":3}
+console command that makes a script executable chmod +x deploy.sh
+
+p= promise(set timeout, console.log taco, resolve true)
+consle log burger
+p, .then result -shake, catch-salad, finally-noodles
+console log fries
+burger, fries taco, shake, noodles never throws an error so no salad
+
+a= async(return new promise(set timeout-console log D resolve true))
+try(consolelog('a')), await a, console log ('b')
+catch(e)(cosnole log C)
+ADB
+
+.text{
+    width: 100%;
+    background-color: #ffffff60;
+    flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.players{}
+.player-name{
+  font-weight: bold;
+  text-decoration: none;
+}
+#boardofthegame{
+  background-color: white;
+}
+
+Dom textcontent Sets the child text for the an element, object is {n:1}
+127.0.0.1 localhost always
+DNS record types A/AAAA Address- specific IP Addresses IPV4/IPV6
+CNAME Canonical Name. Alias. NS- NAme Server- Authority for queries and proof of ownership
+TEXT- Metadata Used for policies and verification
+SOA- Start of Authority- propogation of information
