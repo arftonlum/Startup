@@ -33,3 +33,34 @@ I am going to use the required technologies in the following ways.
 - **DB/Login** - Store users and scores in database. Register and login users. Credentials securely stored in database.
 - **WebSocket** - As each player gets a new high score or joins the top 5, all players are informed
 - **React** - Application ported to use the React web framework.
+
+## HTML deliverable
+
+For this deliverable I built out the structure of my application using HTML.
+
+- **HTML pages** - Four HTML pages that represent the four faces of my website including a login page, the game, a leaderboard, and an about page.
+- **Links** - There is a navigation page at the top that will allow you to move between the pages and the login page takes you to the game.
+- **Text** - The game is somewhat explained on the .
+- **Images** - Has a moose on the about page with a much more relevant background image on each page.
+- **DB/Login** - Input box and submit button for login.
+- **WebSocket** - The leaderboard and score updates on the main page are shown.
+
+## CSS deliverable
+
+For this deliverable I properly styled the application into its final appearance.
+
+- **Header, footer, and main content body** I have a CSS page to represent how elements are to be changed across all pages with a specific page for the game itself/
+- **Navigation elements** - I added a hover effect to the navigation buttons/
+- **Responsive to window resizing** - My app is designed with flex elements that should resize well.
+- **Application elements** - Added semi-translucent backgrounds to text to see over the background
+- **Application text content** - Consistent fonts
+- **Application images** - The background images remain static with the size of the window
+
+## JavaScript deliverable
+
+For this deliverable I implemented by JavaScript so that the application works for a single user. I also added placeholders for future technology.
+
+- **login** - When you press enter or the login button it takes you to the game page and your name is shown when you click new game
+- **database** - Displayed the leaderboard scores. Currently this is stored and retrieved from local storage, but it will be replaced with the database data later.
+- **WebSocket** - There is a space above the game for live score changes to be shown with websocket
+- **application logic** - The game functions as it should in the final product
