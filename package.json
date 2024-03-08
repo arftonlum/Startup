@@ -1,0 +1,15 @@
+{
+  "name": "startup",
+  "version": "1.0.0",
+  "description": "The snake game is one of the most classic games our time and it has seen a lot of variations over the years. This particular take on the game is almost an inverse of the original where the player chooses paths for the snake while building potential future paths. Your objective is to make the longest possible path for a snake by carefully placing potential paths on the board.\r ### Design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}

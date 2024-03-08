@@ -1,4 +1,4 @@
-function loadScores() {
+async function loadScores() {
     let scores = [];
     const scoresText = localStorage.getItem('scores');
     if (scoresText) {
@@ -33,4 +33,8 @@ function loadScores() {
   }
   
   loadScores();
-  
+
+  /*async function loadScores() {
+  const response = await fetch("/api/scores")
+  const scores = await response.json()
+  */

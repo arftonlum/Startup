@@ -210,3 +210,5 @@ Where would I put a fetch request?
 When am I serializing stuff?
 
 Endpoint design- grammatical, readable, simple, documented
+So messy
+daemon
