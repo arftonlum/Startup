@@ -278,41 +278,11 @@ function getPlayerName() {
   }
 //score stuff I am pretty sure works
 
-function saveScore(score) {
+async function saveScore(score) {
     const userName = this.getPlayerName();
-    let scores = [];
-    const scoresText = localStorage.getItem('scores');
-    if (scoresText) {
-      scores = JSON.parse(scoresText);
-    }
-    scores = this.updateScores(userName, score, scores);
-
-    fetch('/score',{
+    console.log('should send the score', JSON.stringify({name:userName,score:score,date:new Date().toLocaleDateString()}))
+    await fetch('/api/score',{
       method:'POST',
       headers: {'content-type': 'application/json'},
-
-    }) JSON.stringify(scores));
-  }
-function updateScores(userName, score, scores) {
-    const date = new Date().toLocaleDateString();
-    const newScore = { name: userName, score: score, date: date };
-
-    let found = false;
-    for (const [i, prevScore] of scores.entries()) {
-      if (score > prevScore.score) {
-        scores.splice(i, 0, newScore);
-        found = true;
-        break;
-      }
-    }
-
-    if (!found) {
-      scores.push(newScore);
-    }
-
-    if (scores.length > 10) {
-      scores.length = 10;
-    }
-
-    return scores;
+      body: JSON.stringify({name:userName,score:score,date:new Date().toLocaleDateString()})});
   }

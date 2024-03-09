@@ -22,7 +22,7 @@ apiRouter.get('/scores', (_req, res) => {
 
 // SubmitScore
 apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
+  console.log("running stuff,",req.body)
   leaderboard.push(req.body)
   leaderboard.sort(comparescores);
   if(leaderboard.length > 6){
@@ -39,28 +39,6 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-let scores = [];
-function updateScores(newScore, scores) {
-  let found = false;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
-      found = true;
-      break;
-    }
-  }
-
-  if (!found) {
-    scores.push(newScore);
-  }
-
-  if (scores.length > 10) {
-    scores.length = 10;
-  }
-
-  return scores;
-}
 
 function comparescores (a,b){
   if (a.score>b.score){
