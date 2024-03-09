@@ -286,3 +286,6 @@ async function saveScore(score) {
       headers: {'content-type': 'application/json'},
       body: JSON.stringify({name:userName,score:score,date:new Date().toLocaleDateString()})});
   }
+
+// on page load, start a new game
+Buildboard();
