@@ -287,7 +287,11 @@ function saveScore(score) {
     }
     scores = this.updateScores(userName, score, scores);
 
-    localStorage.setItem('scores', JSON.stringify(scores));
+    fetch('/score',{
+      method:'POST',
+      headers: {'content-type': 'application/json'},
+
+    }) JSON.stringify(scores));
   }
 function updateScores(userName, score, scores) {
     const date = new Date().toLocaleDateString();
