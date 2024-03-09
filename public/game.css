@@ -6,7 +6,6 @@
   flex-direction: column;
   align-items: center;
 }
-.players{}
 .player-name{
   font-weight: bold;
   text-decoration: none;
@@ -15,5 +14,8 @@
   background-color: white;
 }
 #spacer{
+  height: 50px;
+  width: 100%;
+  margin-top:20p;
   margin-bottom: 20p;
 }
