@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-let leaderboard =[{name:'Dave', score: 3, date:"March"},{name:'Nate', score: 250, date:"March"},{name:'Jake', score: 2, date:"March"},{name:'Ben', score: 9, date:"March"}];
+let leaderboard =[];
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -22,7 +22,6 @@ apiRouter.get('/scores', (_req, res) => {
 
 // SubmitScore
 apiRouter.post('/score', (req, res) => {
-  console.log("running stuff,",req.body)
   leaderboard.push(req.body)
   leaderboard.sort(comparescores);
   if(leaderboard.length > 6){

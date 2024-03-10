@@ -20,7 +20,6 @@ function Buildboard(){
     myposition=[...firstposition];
     score = 0;
     updateScore(score);
-    console.log("building board");
     for (let i = 0; i<boardwidth; i++){
       board.push(column=[]);
         for (let i = 0; i<boardheight; i++){
@@ -103,7 +102,6 @@ ctx.lineTo(myposition[0]*100+50,myposition[1]*100+100);
 ctx.stroke();
 }
 function ArcR (position){
-    console.log("running ArcR")
     let newPos = [...position];
     if (newPos[2] == "N"){
       DrawArcRTiles(5,1);
@@ -128,7 +126,7 @@ function ArcR (position){
   return newPos;
 }
 function ArcL (position){
-    console.log("running ArcL")
+
     let newPos = [...position];
     if (newPos[2] == "N"){ 
       DrawArcLTiles(5,1);      
@@ -153,7 +151,6 @@ function ArcL (position){
   return newPos;
 }
 function Cross (position){
-    console.log("running Cross")
     DrawCrossTiles();
     let newPos = [...position];
     if (newPos[2] == "N"){
@@ -205,23 +202,19 @@ function Cross (position){
 //button function
 function clickarcl (){
 board[myposition[0]][myposition[1]].tile="arcltile";
-console.log(board[myposition[0]][myposition[1]],"placed arcL in",myposition[0],myposition[1]);
 makepath();
 };
 function clickarcr (){
     board[myposition[0]][myposition[1]].tile="arcrtile";
-    console.log("placed arcR in",myposition[0],myposition[1]);
     makepath();
 };
 function clickcross (){
     board[myposition[0]][myposition[1]].tile="crosstile";
-    console.log("placed Cross in",myposition[0],myposition[1]);
     makepath();
 };
 function makepath(){
   updateScore(score);
     if (myposition[0] == -1 || myposition[1] == -1 || myposition[0] == boardwidth || myposition[1] == boardheight ){
-        console.log("game over you got", score, "points")
         score=score*100
         saveScore(score);
         const nscore=`Game over! You got ${score} points`;
@@ -230,7 +223,6 @@ function makepath(){
     };
 
     if (board[myposition[0]][myposition[1]].tile=="empty"){
-        console.log("nothing at", myposition[0],myposition[1],myposition[3]);
         multiplier=1;
         //changeturns();
         return;
@@ -240,23 +232,18 @@ function makepath(){
         console.log("ArcR here")
         score=score+multiplier;
         multiplier++;
-        console.log("you have",score, "points");
         myposition=ArcR(myposition);
 
     }
     else if (board[myposition[0]][myposition[1]].tile=="arcltile"){
-        console.log("ArcL here")
         score=score+multiplier;
         multiplier++;
-        console.log("you have",score, "points");
         myposition= ArcL(myposition);
     }
     else if (board[myposition[0]][myposition[1]].tile=="crosstile"){
         myposition=Cross(myposition);
         score=score+multiplier;
         multiplier++;
-        console.log("you have",score, "points");
-        console.log("Cross here")
     };
     makepath();
 }
