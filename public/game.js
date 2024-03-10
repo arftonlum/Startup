@@ -8,11 +8,14 @@ let boardwidth = 7;
 let boardheight= 7;
 let score = 0;
 let multiplier=1;
+let gridlines = 'on'
 function Buildboard(){
     let blah = document.getElementById("boardofthegame");
     let blahtx = blah.getContext("2d");
     blahtx.reset(); 
     drawtemplates();
+
+    drawGrid();
     document.querySelector('.player-name').textContent=getPlayerName();
     board=[];
     firstposition=[3,0,"N","first"];
@@ -25,6 +28,37 @@ function Buildboard(){
         for (let i = 0; i<boardheight; i++){
             column.push({tile:"empty"})
         }}}
+function drawGrid (){
+  if (gridlines == 'on'){
+
+  for (let i =0; i< boardheight; i++){
+    const c = document.getElementById("boardofthegame");
+    const ctx = c.getContext("2d");
+    ctx.strokeStyle='black';
+    ctx.beginPath();
+    ctx.moveTo(i*100,0);
+    ctx.lineTo(i*100,boardheight*100);
+    ctx.moveTo(0,i*100);
+    ctx.lineTo(boardheight*100,i*100);
+    ctx.stroke();
+  }}
+  else if (gridlines == 'off'){
+    for (let i =0; i< boardheight; i++){
+      const c = document.getElementById("boardofthegame");
+      const ctx = c.getContext("2d");
+      ctx.clearRect(i*100-1,0,2,boardheight*100);
+      ctx.clearRect(0,i*100-1,boardheight*100,2);
+  }
+}}
+function toggleGrid(){
+  if (gridlines == 'on'){
+    gridlines ='off'
+}
+  else if (gridlines == 'off'){
+    gridlines = 'on'
+  }
+drawGrid();
+}
 function changeturns(){
   console.log("changeturns");
 if (myposition[3] == "first"){
