@@ -47,4 +47,13 @@ function displayScores(scores) {
   }
 }
 
+async function loadquote(){
+  let resp = await fetch("https://api.quotable.io/random");
+  resp = await resp.json();
+  let quote = resp.content + ' - ' + resp.author;
+  document.getElementById("quote").textContent = quote;
+
+}
+
 loadScores();
+loadquote();
