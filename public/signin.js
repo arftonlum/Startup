@@ -35,6 +35,7 @@
     } else {
       const body = await response.json();
       const modalEl = document.querySelector('#msgModal');
+      console.log('error')
       modalEl.querySelector('.modal-body').textContent = `⚠ Error: ${body.msg}`;
       const msgModal = new bootstrap.Modal(modalEl, {});
       msgModal.show();
