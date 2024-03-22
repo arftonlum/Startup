@@ -64,3 +64,13 @@ For this deliverable I implemented by JavaScript so that the application works f
 - **database** - Displayed the leaderboard scores. Currently this is stored and retrieved from local storage, but it will be replaced with the database data later.
 - **WebSocket** - There is a space above the game for live score changes to be shown with websocket
 - **application logic** - The game functions as it should in the final product
+
+  ## Service deliverable
+
+For this deliverable I added backend points that receive high scores and return an updated leaderboard
+
+- **Node.js/Express HTTP service** - I have an index.js file that now runs the website
+- **Static middleware for frontend** - My node.js file calls the public folder with my static files
+- **Calls to third party endpoints** - There is a quote that is received from a third party site on the Leaderboard page
+- **Backend service endpoints** - The game sends scores to the server to be sorted whenever a game is completed.
+- **Frontend calls service endpoints** - The leaderboard page asks the server for the top scores and they are displayed 
