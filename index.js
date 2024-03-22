@@ -82,14 +82,23 @@ secureApiRouter.use(async (req, res, next) => {
     res.status(401).send({ msg: 'Unauthorized' });
   }
 });
+// setAuthCookie in the HTTP response
+function setAuthCookie(res, authToken) {
+  res.cookie(authCookieName, authToken, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+  });
+}
+//End of the new stuff
 
-// GetScores
-apiRouter.get('/scores', (_req, res) => {
+// GetScores In theirs they added a function called get high scores
+secureApiRouter.get('/scores', (_req, res) => {
   res.send(leaderboard);
 });
 
-// SubmitScore
-apiRouter.post('/score', (req, res) => {
+// SubmitScore They also added a addScore function
+secureApiRouter.post('/score', (req, res) => {
   leaderboard.push(req.body)
   leaderboard.sort(comparescores);
   if(leaderboard.length > 6){
