@@ -42,7 +42,7 @@
   }
   
   function play() {
-    window.location.href = 'play.html';
+    window.location.href = 'game.html';
   }
   
   function logout() {

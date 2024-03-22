@@ -9,7 +9,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <script src="signin.js"></script>
+    
     <link rel="stylesheet" href="main.css"/>
     <!-- Tell browsers not to scale the viewport automatically -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,9 +24,6 @@
       <nav>
         <menu>
           <li><button type="button" class="btn btn-outline-dark"><a href="index.html">Home</a></button></li>
-          <li><button type="button" class="btn btn-outline-dark"><a href="game.html">Play the Game</a></button></li>
-          <li><button type="button" class="btn btn-outline-dark"><a href="leaderboard.html">Leaderboard</a></button></li>
-          <li><button type="button" class="btn btn-outline-dark"><a href="rules.html">How to Play</a></button></li>
         </menu>
       </nav>
 
@@ -34,14 +31,14 @@
       <hr />
     </header>
 
-    <main class="container-fluid bg-secondary text-center">
+    <main>
       <div>
         <h1>Welcome! Sign in to play</h1>
         <!-- Displayed when needing authentication -->
         <div id="loginControls" style="display: none">
           <div class="input-group mb-3">
-            <span class="input-group-text">@</span>
-            <input class="form-control" type="text" id="userName" placeholder="your@email.com" />
+            <span class="input-group-text"></span>
+            <input class="form-control" type="text" id="userName" placeholder="Username" />
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">🔒</span>
@@ -77,6 +74,7 @@
       <br />
       <a href="https://github.com/arftonlum/Startup">GitHub</a>
     </div>
+    <script src="signin.js"></script>
     </footer>
   </body>
 </html>
