@@ -212,3 +212,6 @@ When am I serializing stuff?
 Endpoint design- grammatical, readable, simple, documented
 So messy
 daemon
+
+3/13/24
+Data Services
