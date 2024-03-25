@@ -215,3 +215,8 @@ daemon
 
 3/13/24
 Data Services
+
+3/25/24
+OWASP- OPen Worldwide Application Security Project
+You have some blame when you code lazy. It is not just about money it is also security and lives.
+Broken Access Control
