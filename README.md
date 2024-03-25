@@ -73,4 +73,17 @@ For this deliverable I added backend points that receive high scores and return 
 - **Static middleware for frontend** - My node.js file calls the public folder with my static files
 - **Calls to third party endpoints** - There is a quote that is received from a third party site on the Leaderboard page
 - **Backend service endpoints** - The game sends scores to the server to be sorted whenever a game is completed.
-- **Frontend calls service endpoints** - The leaderboard page asks the server for the top scores and they are displayed 
+- **Frontend calls service endpoints** - The leaderboard page asks the server for the top scores and they are displayed
+
+- ## DB/Login deliverable
+
+
+For this deliverable I associated scores with the logged in user. I stored the scores and referenced them from the database.
+
+- **MongoDB Atlas database created** - done!
+- **Stores data in MongoDB** - done!
+- **User registration** - Creates a new account in the database.
+- **existing user** - Stores the scores under the same user if the user already exists.
+- **Use MongoDB to store credentials** - Stores both user and their scores.
+- **Restricts functionality** - You cannot play or see scores until you have logged in.
+
