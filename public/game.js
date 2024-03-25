@@ -23,6 +23,8 @@ function Buildboard(){
     myposition=[...firstposition];
     score = 0;
     updateScore(score);
+    configureWebSocket(); //pretty sure this is a good place to call this
+    this.broadcastEvent(this.getPlayerName(), GameStartEvent, {}); //also this?
     for (let i = 0; i<boardwidth; i++){
       board.push(column=[]);
         for (let i = 0; i<boardheight; i++){
@@ -253,6 +255,7 @@ function makepath(){
         saveScore(score);
         const nscore=`Game over! You got ${score} points`;
         updateScore(nscore);
+        this.broadcastEvent(userName, GameEndEvent, newScore);//last change, this should be here.
         return;
     };
 
@@ -280,9 +283,6 @@ function makepath(){
         multiplier++;
     };
     makepath();
-}
-function streak(bonus){
-
 }
 
 function getPlayerName() {

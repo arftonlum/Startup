@@ -220,3 +220,10 @@ Data Services
 OWASP- OPen Worldwide Application Security Project
 You have some blame when you code lazy. It is not just about money it is also security and lives.
 Broken Access Control
+Cryptographic Failures
+Sanitize Inputs
+Insecure Design
+Security Misconfiguration-
+Vulnerable Components-
+ID and auth Failures
+Software INtegrity Failures- something you download isn't great

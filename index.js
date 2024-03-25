@@ -9,6 +9,7 @@ const DB = require('./database.js');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const authCookieName = 'token';
+const { websocketstuff } = require('./websocket.js');
 
 app.use(cookieParser());
 
@@ -125,3 +126,5 @@ function comparescores (a,b){
   };
   return 0;  
 }
+
+websocketstuff(httpService);
