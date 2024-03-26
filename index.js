@@ -9,7 +9,7 @@ const DB = require('./database.js');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const authCookieName = 'token';
-const { websocketstuff } = require('./websocket.js');
+const { websocketstuff } = require('./websocketstuff.js');
 
 app.use(cookieParser());
 
@@ -23,7 +23,7 @@ app.use(express.static('public'));
 // Router for service endpoints
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
-
+app.set('trust proxy', true);
 //more new stuff
 // CreateAuth token for a new user
 apiRouter.post('/auth/create', async (req, res) => {
@@ -113,9 +113,6 @@ app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
 
 function comparescores (a,b){
   if (a.score>b.score){
@@ -126,5 +123,15 @@ function comparescores (a,b){
   };
   return 0;  
 }
+function setAuthCookie(res, authToken) {
+  res.cookie(authCookieName, authToken, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+  });
+}
 
+const httpService = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
 websocketstuff(httpService);
