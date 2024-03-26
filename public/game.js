@@ -2,7 +2,9 @@
 //add text to say what players turn
 let firstposition = [1,1,"S","first"];
 let secondposition=[1,1,"S","second"];
-let myposition=[0,0,"N","first"]
+let myposition=[0,0,"N","first"];
+const GameEndEvent = 'gameEnd';
+const GameStartEvent = 'gameStart';
 let board = [];
 let boardwidth = 7;
 let boardheight= 7;
@@ -23,8 +25,8 @@ function Buildboard(){
     myposition=[...firstposition];
     score = 0;
     updateScore(score);
-    configureWebSocket(); //pretty sure this is a good place to call this
-    this.broadcastEvent(this.getPlayerName(), GameStartEvent, {}); //also this?
+ //pretty sure this is a good place to call this
+    broadcastEvent(this.getPlayerName(), GameStartEvent, {}); //also this?
     for (let i = 0; i<boardwidth; i++){
       board.push(column=[]);
         for (let i = 0; i<boardheight; i++){
@@ -313,12 +315,15 @@ async function saveScore(score) {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     this.socket.onopen = (event) => {
+      console.log('onopen')
       this.displayMsg('system', 'game', 'connected');
     };
     this.socket.onclose = (event) => {
+      console.log('onclose')
       this.displayMsg('system', 'game', 'disconnected');
     };
     this.socket.onmessage = async (event) => {
+      console.log('onmessage')
       const msg = JSON.parse(await event.data.text());
       if (msg.type === GameEndEvent) {
         this.displayMsg('player', msg.from, `scored ${msg.value.score}`);
@@ -344,4 +349,5 @@ async function saveScore(score) {
   };
 
 // on page load, start a new game
+
 Buildboard();
