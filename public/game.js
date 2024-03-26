@@ -26,6 +26,7 @@ function Buildboard(){
     score = 0;
     updateScore(score);
  //pretty sure this is a good place to call this
+
     broadcastEvent(this.getPlayerName(), GameStartEvent, {}); //also this?
     for (let i = 0; i<boardwidth; i++){
       board.push(column=[]);
@@ -257,7 +258,7 @@ function makepath(){
         saveScore(score);
         const nscore=`Game over! You got ${score} points`;
         updateScore(nscore);
-        this.broadcastEvent(userName, GameEndEvent, newScore);//last change, this should be here.
+        this.broadcastEvent(getPlayerName(), GameEndEvent, {score:score});//last change, this should be here.
         return;
     };
 
@@ -316,6 +317,7 @@ async function saveScore(score) {
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     this.socket.onopen = (event) => {
       console.log('onopen')
+      Buildboard();
       this.displayMsg('system', 'game', 'connected');
     };
     this.socket.onclose = (event) => {
@@ -345,9 +347,8 @@ async function saveScore(score) {
       type: type,
       value: value,
     };
-    this.socket.send(JSON.stringify(event));
+    socket.send(JSON.stringify(event));
   };
 
 // on page load, start a new game
-
-Buildboard();
+configureWebSocket();
