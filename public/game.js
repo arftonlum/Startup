@@ -309,7 +309,7 @@ async function saveScore(score) {
   }
 
   //websocket stuff from simon
-  configureWebSocket() {
+  function configureWebSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     this.socket.onopen = (event) => {
@@ -328,20 +328,20 @@ async function saveScore(score) {
     };
   }
 
-  displayMsg(cls, from, msg) {
+  function displayMsg(cls, from, msg) {
     const chatText = document.querySelector('#player-messages');
     chatText.innerHTML =
       `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
   }
 
-  broadcastEvent(from, type, value) {
+  function broadcastEvent(from, type, value) {
     const event = {
       from: from,
       type: type,
       value: value,
     };
     this.socket.send(JSON.stringify(event));
-  }
+  };
 
 // on page load, start a new game
 Buildboard();
