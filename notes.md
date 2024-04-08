@@ -226,4 +226,7 @@ Insecure Design
 Security Misconfiguration-
 Vulnerable Components-
 ID and auth Failures
-Software INtegrity Failures- something you download isn't great
+Software INtegrity Failures- something you download isn't great\
+
+For the react deliverable, you do not need to have ecerything on react, just show some things.
+-g flag installs globally into entire npm environment
