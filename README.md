@@ -87,3 +87,13 @@ For this deliverable I associated scores with the logged in user. I stored the s
 - **Use MongoDB to store credentials** - Stores both user and their scores.
 - **Restricts functionality** - You cannot play or see scores until you have logged in.
 
+  ## WebSocket deliverable
+
+For this deliverable I used webSocket to update the votes on the frontend in realtime.
+
+- **Backend listens for WebSocket connection** - done!
+- **Frontend makes WebSocket connection** - done!
+- **Data sent over WebSocket connection** - Sends score and player name onMessage
+- **WebSocket data displayed** - In real time you can see the other players connect, start new games, and finish games
+
+
