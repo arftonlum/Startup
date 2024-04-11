@@ -1,6 +1,18 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Signin } from './signin/signin';
+import { Game } from './game/game';
+import { Leaderboard } from './leaderboard/leaderboard';
+import { Rules } from './rules/rules';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+    <div className='body bg-dark text-light'><!-- sub-elements here --></div>
+  </BrowserRouter>
+);
 
 export default function App() {
     return (
@@ -12,30 +24,28 @@ export default function App() {
             </div>
             <menu className='navbar-nav'>
               <li className='nav-item'>
-                <a className='nav-link' href='index.html'>
-                  Home
-                </a>
+              <NavLink className='nav-link' to='signin'>Signin</NavLink>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='game.html'>
-                  Play
-                </a>
+              <NavLink className='nav-link' to='game'>Game</NavLink>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='leaderboard.html'>
-                  Scores
-                </a>
+              <NavLink className='nav-link' to='leaderboard'>Leaderboard</NavLink>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='rules.html'>
-                  About
-                </a>
+              <NavLink className='nav-link' to='rules'>Rules</NavLink>
               </li>
             </menu>
           </nav>
         </header>
   
-        <main>App components go here</main>
+        <Routes>
+            <Route path='/' element={<Signin />} exact />
+            <Route path='/game' element={<Game />} />
+            <Route path='/leaderboard' element={<Leaderboard />} />
+            <Route path='/rules' element={<Rules />} />
+            <Route path='*' element={<NotFound />} />
+        </Routes>
   
         <footer className='bg-dark text-white-50'>
           <div className='container-fluid'>
@@ -47,4 +57,7 @@ export default function App() {
         </footer>
       </div>
     );
+  }
+  function NotFound() {
+    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
   }
