@@ -7,8 +7,9 @@ import { Game } from './game/game';
 import { Leaderboard } from './leaderboard/leaderboard';
 import { Rules } from './rules/rules';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+function App() {
+  
+    return (
   <BrowserRouter>
         <header className='container-fluid'>
           <nav className='navbar fixed-top navbar-dark'>
@@ -17,7 +18,7 @@ root.render(
             </div>
             <menu className='navbar-nav'>
               <li className='nav-item'>
-              <NavLink className='nav-link' to='signin'>Signin</NavLink>
+              <NavLink className='nav-link' to=''>Signin</NavLink>
               </li>
               <li className='nav-item'>
               <NavLink className='nav-link' to='game'>Game</NavLink>
@@ -50,7 +51,9 @@ root.render(
         </footer>
   </BrowserRouter>
 );
+}
 
   function NotFound() {
     return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
   }
+  export default App;
