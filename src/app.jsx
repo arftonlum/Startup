@@ -10,13 +10,6 @@ import { Rules } from './rules/rules';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <div className='body bg-dark text-light'><!-- sub-elements here --></div>
-  </BrowserRouter>
-);
-
-export default function App() {
-    return (
-      <div className='body bg-dark text-light'>
         <header className='container-fluid'>
           <nav className='navbar fixed-top navbar-dark'>
             <div className='navbar-brand'>
@@ -55,9 +48,9 @@ export default function App() {
             </a>
           </div>
         </footer>
-      </div>
-    );
-  }
+  </BrowserRouter>
+);
+
   function NotFound() {
     return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
   }
