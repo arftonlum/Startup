@@ -11,6 +11,7 @@ function App() {
   
     return (
   <BrowserRouter>
+    <div className='body bg-dark text-light'>
         <header className='container-fluid'>
           <nav className='navbar fixed-top navbar-dark'>
             <div className='navbar-brand'>
@@ -32,7 +33,6 @@ function App() {
             </menu>
           </nav>
         </header>
-  
         <Routes>
             <Route path='/' element={<Signin />} exact />
             <Route path='/game' element={<Game />} />
@@ -49,6 +49,7 @@ function App() {
             </a>
           </div>
         </footer>
+        </div>
   </BrowserRouter>
 );
 }
