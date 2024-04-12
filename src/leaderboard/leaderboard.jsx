@@ -1,7 +1,16 @@
 import React from 'react';
 import './leaderboard.css';
+async function loadquote(){
+  let resp = await fetch("https://api.quotable.io/random");
+  resp = await resp.json();
+  let quote = resp.content + ' - ' + resp.author;
+  document.getElementById("quote").textContent = quote;
+
+}
+
 
 export function Leaderboard() {
+  loadquote();
     const [scores, setScores] = React.useState([]);
     React.useEffect(() => {
         fetch('/api/scores')

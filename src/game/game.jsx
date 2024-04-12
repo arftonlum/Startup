@@ -324,8 +324,9 @@ function configureWebSocket() {
   socket.onclose = (event) => {
     displayMsg('system', 'game', 'disconnected');
   };
+  //everytime we navigate to GAME this onmessage event is called an extra time.
   socket.onmessage = async (event) => {
-    console.log('onmessage')
+    console.log('this repeats')
     const msg = JSON.parse(await event.data.text());
     if (msg.type === GameEndEvent) {
       displayMsg('player', msg.from, `scored ${msg.value.score}`);
