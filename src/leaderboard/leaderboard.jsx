@@ -2,8 +2,10 @@ import React from 'react';
 import './leaderboard.css';
 
 export function Leaderboard() {
+    console.log('page')
     const [scores, setScores] = React.useState([]);
     React.useEffect(() => {
+      console.log(scores.length)
         fetch('/api/scores')
           .then((response) => response.json())
           .then((scores) => {
@@ -21,10 +23,11 @@ export function Leaderboard() {
       // Demonstrates rendering an array with React
       const scoreRows = [];
       if (scores.length) {
+        console.log(scores)
         for (const [i, score] of scores.entries()) {
           scoreRows.push(
             <tr key={i}>
-              <td>{i}</td>
+              <td>{i+1}</td>
               <td>{score.name.split('@')[0]}</td>
               <td>{score.score}</td>
               <td>{score.date}</td>
@@ -32,6 +35,7 @@ export function Leaderboard() {
           );
         }
       } else {
+        console.log('should')
         scoreRows.push(
           <tr key='0'>
             <td colSpan='4'>Be the first to score</td>
@@ -43,13 +47,13 @@ export function Leaderboard() {
             <table>
         <thead>
           <tr>
-            <th>#</th>
+            <th>Place</th>
             <th>Name</th>
             <th>Score</th>
             <th>Date</th>
           </tr>
         </thead>
-        <tbody id="scores">
+        <tbody id="scores">{scoreRows}
         </tbody>
       </table>
       <div id="quote"></div>
