@@ -6,8 +6,12 @@ import { Signin } from './signin/signin';
 import { Game } from './game/game';
 import { Leaderboard } from './leaderboard/leaderboard';
 import { Rules } from './rules/rules';
+import { AuthState } from './signin/authState';
 
 function App() {
+  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
   
     return (
   <BrowserRouter>
@@ -34,7 +38,20 @@ function App() {
           </nav>
         </header>
         <Routes>
-            <Route path='/' element={<Signin />} exact />
+        <Route
+            path='/'
+            element={
+              <Signin
+                userName={userName}
+                authState={authState}
+                onAuthChange={(userName, authState) => {
+                  setAuthState(authState);
+                  setUserName(userName);
+                }}
+              />
+            }
+            exact
+          />
             <Route path='/game' element={<Game />} />
             <Route path='/leaderboard' element={<Leaderboard />} />
             <Route path='/rules' element={<Rules />} />
