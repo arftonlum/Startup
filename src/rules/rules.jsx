@@ -3,7 +3,7 @@ import './rules.css';
 
 export function Rules() {
   return (
-    <main className='container-fluid bg-secondary text-center'>
+    <main className='container-fluid text-center'>
             <p>
         Paths is a game based on the classic board game Tsuro. Using randomly generated tiles, you have to build a route on the board without falling off the edge. The more tiles you cross, the higher your score.
       </p>

@@ -14,20 +14,20 @@ function App() {
     <div className='body bg-dark text-light'>
         <header className='container-fluid'>
           <nav className='navbar fixed-top navbar-dark'>
-            <div className='navbar-brand'>
+            <h1 className='navbar-brand'>
               Paths<sup>&reg;</sup>
-            </div>
+            </h1>
             <menu className='navbar-nav'>
-              <li className='nav-item'>
+            <li className='btn btn-outline-dark'>
               <NavLink className='nav-link' to=''>Signin</NavLink>
               </li>
-              <li className='nav-item'>
+              <li className='btn btn-outline-dark'>
               <NavLink className='nav-link' to='game'>Game</NavLink>
               </li>
-              <li className='nav-item'>
+              <li className='btn btn-outline-dark'>
               <NavLink className='nav-link' to='leaderboard'>Leaderboard</NavLink>
               </li>
-              <li className='nav-item'>
+              <li className='btn btn-outline-dark'>
               <NavLink className='nav-link' to='rules'>Rules</NavLink>
               </li>
             </menu>

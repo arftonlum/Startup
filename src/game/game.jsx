@@ -2,7 +2,7 @@ import React from 'react';
 import './game.css';
 export function Game() {
   return (
-    <main className='container-fluid bg-secondary text-center'>
+    <main className='container-fluid text-center'>
       <div className="text">
       <div className="players">
         You Are:

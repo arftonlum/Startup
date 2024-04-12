@@ -7,23 +7,35 @@ menu{
     background-color: green;
     display: flex;
     flex: 1;
-    flex-direction: row;
-    color: green;
+    flex-direction: row !important;
 }
 a{
   color: white;
 }
+#root { height:100%;}
+html,body { margin:0; padding:0; height:100%;}
+h1 { margin:0; padding:0;}
 .body{
+  height:100%;
   background-image: url('/The_Great_Wall_of_China_at_Jinshanling-edit.jpg');
   background-size: height=100%;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 main {
+  padding-top:5%;
+  padding-bottom: 1%;
   flex: 1 calc(100vh - 110px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+menu li { margin-left:10px;}
+.navbar-brand {
+  padding-left: 0.3em;
+}
+menu .nav-item {
+  padding: 0 0.3em;
 }
 footer{
   position:fixed;
