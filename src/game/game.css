@@ -19,3 +19,6 @@
   margin-top:20p;
   margin-bottom: 20p;
 }
+.mycontainer-fluid{
+  background-color: transparent !important;
+}

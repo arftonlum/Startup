@@ -272,7 +272,6 @@ updateScore(score);
   }
 
   else if (board[myposition[0]][myposition[1]].tile=="arcrtile"){
-      console.log("ArcR here")
       score=score+multiplier;
       multiplier++;
       myposition=ArcR(myposition);
@@ -319,12 +318,10 @@ function configureWebSocket() {
   const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
   socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
   socket.onopen = (event) => {
-    console.log('onopen')
     Buildboard();
     displayMsg('system', 'game', 'connected');
   };
   socket.onclose = (event) => {
-    console.log('onclose')
     displayMsg('system', 'game', 'disconnected');
   };
   socket.onmessage = async (event) => {
@@ -356,16 +353,14 @@ function broadcastEvent(from, type, value) {
 export function Game() {
 
   const mycanvas = React.useRef(null);
-  console.log('start')
   React.useEffect(() =>
   {
-    console.log('set');
     configureWebSocket();
   }, []);
 
 
   return (
-    <main className='container-fluid text-center'>
+    <main className='mycontainer-fluid text-center'>
       <div className="text">
       <div className="players">
         You Are:

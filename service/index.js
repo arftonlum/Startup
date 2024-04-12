@@ -102,7 +102,7 @@ secureApiRouter.get('/scores', (_req, res) => {
 secureApiRouter.post('/score', (req, res) => {
   leaderboard.push(req.body)
   leaderboard.sort(comparescores);
-  if(leaderboard.length > 6){
+  if(leaderboard.length > 10){
     leaderboard.pop();
   }
   res.send(leaderboard);
