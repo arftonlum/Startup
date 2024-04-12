@@ -17,7 +17,7 @@ function App() {
   <BrowserRouter>
     <div className='body bg-dark text-light'>
         <header className='container-fluid'>
-          <nav className='navbar fixed-top navbar-dark'>
+          <nav className='navbar navbar-dark'>
             <h1 className='navbar-brand'>
               Paths<sup>&reg;</sup>
             </h1>

@@ -11,16 +11,15 @@ let boardheight= 7;
 let score = 0;
 let multiplier=1;
 let gridlines = 'on'
+let socket =null;
 function Buildboard(){
-  console.log('running');
   let blah = document.getElementById("boardofthegame");
-  console.log('more')
   console.log(blah);
   let blahtx = blah.getContext("2d");
   blahtx.reset(); 
   drawtemplates();
 
-  drawGrid(context);
+  drawGrid();
   document.querySelector('.player-name').textContent=getPlayerName();
   board=[];
   firstposition=[3,0,"N","first"];
@@ -30,9 +29,10 @@ function Buildboard(){
   updateScore(score);
 //pretty sure this is a good place to call this
 
-  broadcastEvent(this.getPlayerName(), GameStartEvent, {}); //also this?
+  broadcastEvent(getPlayerName(), GameStartEvent, {}); //also this?
   for (let i = 0; i<boardwidth; i++){
-    board.push(column=[]);
+    let column=[]
+    board.push(column);
       for (let i = 0; i<boardheight; i++){
           column.push({tile:"empty"})
       }}}
@@ -261,7 +261,7 @@ updateScore(score);
       saveScore(score);
       const nscore=`Game over! You got ${score} points`;
       updateScore(nscore);
-      this.broadcastEvent(getPlayerName(), GameEndEvent, {score:score});//last change, this should be here.
+      broadcastEvent(getPlayerName(), GameEndEvent, {score:score});//last change, this should be here.
       return;
   };
 
@@ -306,7 +306,7 @@ function updateScore(score) {
 //score stuff I am pretty sure works
 
 async function saveScore(score) {
-  const userName = this.getPlayerName();
+  const userName = getPlayerName();
   console.log('should send the score', JSON.stringify({name:userName,score:score,date:new Date().toLocaleDateString()}))
   await fetch('/api/score',{
     method:'POST',
@@ -317,23 +317,23 @@ async function saveScore(score) {
 //websocket stuff from simon
 function configureWebSocket() {
   const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-  this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
-  this.socket.onopen = (event) => {
+  socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+  socket.onopen = (event) => {
     console.log('onopen')
     Buildboard();
-    this.displayMsg('system', 'game', 'connected');
+    displayMsg('system', 'game', 'connected');
   };
-  this.socket.onclose = (event) => {
+  socket.onclose = (event) => {
     console.log('onclose')
-    this.displayMsg('system', 'game', 'disconnected');
+    displayMsg('system', 'game', 'disconnected');
   };
-  this.socket.onmessage = async (event) => {
+  socket.onmessage = async (event) => {
     console.log('onmessage')
     const msg = JSON.parse(await event.data.text());
     if (msg.type === GameEndEvent) {
-      this.displayMsg('player', msg.from, `scored ${msg.value.score}`);
+      displayMsg('player', msg.from, `scored ${msg.value.score}`);
     } else if (msg.type === GameStartEvent) {
-      this.displayMsg('player', msg.from, `started a new game`);
+      displayMsg('player', msg.from, `started a new game`);
     }
   };
 }
@@ -360,7 +360,7 @@ export function Game() {
   React.useEffect(() =>
   {
     console.log('set');
-    configureWebSocket(ctx);
+    configureWebSocket();
   }, []);
 
 
@@ -377,15 +377,15 @@ export function Game() {
       <br />
 
       <div>
-        <label for="count">Current Score</label>
+        <label htmlFor ="count">Current Score</label>
         <div id="score" className="score center">--</div>
       </div>
 
       <br />
 
       <div>
-        <button onClick={Buildboard()}>New Game</button>
-        <button onClick={toggleGrid()}>Toggle Grid</button>
+        <button onClick={Buildboard}>New Game</button>
+        <button onClick={toggleGrid}>Toggle Grid</button>
       </div>
       </div>
 
@@ -395,13 +395,13 @@ export function Game() {
         </canvas>
       </div>
       <div>
-        <button onClick={clickarcl()}>
+        <button onClick={clickarcl}>
           <canvas id="lefttemplate"width="100" height="100"></canvas>
         </button>
-        <button onClick={clickcross()}>
+        <button onClick={clickcross}>
           <canvas id="crosstemplate"width="100" height="100"></canvas>
         </button>
-        <button onClick={clickarcr()}>
+        <button onClick={clickarcr}>
           <canvas id="righttemplate"width="100" height="100"></canvas>
         </button>
       </div>
