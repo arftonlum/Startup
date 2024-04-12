@@ -96,4 +96,13 @@ For this deliverable I used webSocket to update the votes on the frontend in rea
 - **Data sent over WebSocket connection** - Sends score and player name onMessage
 - **WebSocket data displayed** - In real time you can see the other players connect, start new games, and finish games
 
+  ## React deliverable
+
+For this deliverable I converted the application over to use React
+
+- **Bundled and transpiled** - done!
+- **Components** - Login, Game, Rules, and Leaderboard are all compenents
+- **Router** - Routing between login and leaderboard components
+- **Hooks** - Uses useeffect hooks on game page to reset the websocket when the user leaves the page
+
 
