@@ -14,7 +14,6 @@ let gridlines = 'on'
 let socket =null;
 function Buildboard(){
   let blah = document.getElementById("boardofthegame");
-  console.log(blah);
   let blahtx = blah.getContext("2d");
   blahtx.reset(); 
   drawtemplates();
@@ -306,7 +305,6 @@ function updateScore(score) {
 
 async function saveScore(score) {
   const userName = getPlayerName();
-  console.log('should send the score', JSON.stringify({name:userName,score:score,date:new Date().toLocaleDateString()}))
   await fetch('/api/score',{
     method:'POST',
     headers: {'content-type': 'application/json'},
@@ -322,11 +320,8 @@ function configureWebSocket() {
     displayMsg('system', 'game', 'connected');
   };
   socket.onclose = (event) => {
-    displayMsg('system', 'game', 'disconnected');
   };
-  //everytime we navigate to GAME this onmessage event is called an extra time.
   socket.onmessage = async (event) => {
-    console.log('this repeats')
     const msg = JSON.parse(await event.data.text());
     if (msg.type === GameEndEvent) {
       displayMsg('player', msg.from, `scored ${msg.value.score}`);
@@ -357,6 +352,9 @@ export function Game() {
   React.useEffect(() =>
   {
     configureWebSocket();
+    return ()=>{
+    socket.close();
+    socket=null;}
   }, []);
 
 

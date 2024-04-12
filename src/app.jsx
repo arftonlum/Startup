@@ -12,6 +12,7 @@ function App() {
   const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
   const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
+  const loggedIn = (currentAuthState == AuthState.Authenticated);
   
     return (
   <BrowserRouter>
@@ -25,15 +26,18 @@ function App() {
             <li className='btn btn-outline-dark'>
               <NavLink className='nav-link' to=''>Signin</NavLink>
               </li>
+              {loggedIn &&
               <li className='btn btn-outline-dark'>
               <NavLink className='nav-link' to='game'>Game</NavLink>
-              </li>
+              </li>}
+              {loggedIn &&
               <li className='btn btn-outline-dark'>
               <NavLink className='nav-link' to='leaderboard'>Leaderboard</NavLink>
-              </li>
+              </li>}
+              {loggedIn &&
               <li className='btn btn-outline-dark'>
               <NavLink className='nav-link' to='rules'>Rules</NavLink>
-              </li>
+              </li>}
             </menu>
           </nav>
         </header>
